@@ -12,6 +12,20 @@
 
         <!-- Styles -->
         <style>
+        @media screen and (min-width : 768px)   {
+         .title {
+              font-size: 84px;
+              font-weight: bold;
+          }
+        }
+
+        @media screen and (max-width: 600px) {
+          .title {
+              font-size: 44px;
+              font-weight: bold;
+          }
+
+        }
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -46,8 +60,9 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 74px;
                 font-weight: bold;
+                color: black;
             }
 
             .links > a {
@@ -62,11 +77,17 @@
             .links p{
               color: black;
               font-weight: 500;
+              font-family: initial;
             }
 
             .m-b-md {
                 margin-bottom: 30px;
+            }.logo_home{
+              width: 250px;
+              display: block;
+              margin: auto;
             }
+
         </style>
     </head>
     <body>
@@ -84,6 +105,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
+                  <img src="{{URL::asset('/images/logo.jpg')}}" alt="" class="logo_home">
                     Exo | Online examination
                 </div>
 
