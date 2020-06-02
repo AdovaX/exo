@@ -14,14 +14,14 @@
         <style>
         @media screen and (min-width : 768px)   {
          .title {
-              font-size: 84px;
+              font-size: 84px!important;
               font-weight: bold;
           }
         }
 
         @media screen and (max-width: 600px) {
           .title {
-              font-size: 44px;
+              font-size: 44px!important;
               font-weight: bold;
           }
 
@@ -33,6 +33,7 @@
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
+                overflow: hidden!important;
             }
 
             .full-height {
