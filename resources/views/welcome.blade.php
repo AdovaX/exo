@@ -47,16 +47,21 @@
 
             .title {
                 font-size: 84px;
+                font-weight: bold;
             }
 
             .links > a {
-                color: #636b6f;
+                color: black;
                 padding: 0 25px;
                 font-size: 12px;
-                font-weight: 600;
+                font-weight: bold;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+            }
+            .links p{
+              color: black;
+              font-weight: 500;
             }
 
             .m-b-md {

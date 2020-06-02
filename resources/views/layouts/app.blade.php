@@ -10,8 +10,14 @@
 
     <title>{{ config('app.name', 'Exo') }}</title>
 
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- Styles -->
+    <link href="{{ asset('css/custome_admin.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script src="{{ asset('js/app.js') }}"></script>
 </head>
 <body>
     <div id="app">
@@ -75,6 +81,5 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -1,0 +1,24 @@
+@media screen and (min-width : 768px)   {
+  .mob_top_margin,.top_margin,.top_margin2{
+    margin-top: 50px!important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+ .heading_head{
+   display: block;
+   font-size: 14vw!important;
+ }
+ .m-b-md{
+   margin-bottom: 0px!important;
+ }
+ .mob_top_margin,.top_margin{
+   margin-top: 70px;
+ }
+
+}
+.heading_head{
+  display: block;
+  font-size: 4vw;
+  color: black;
+}
