@@ -34,7 +34,7 @@
                 height: 100vh;
                 margin: 0;
                 overflow: hidden!important;
-            }
+            } 
 
             .full-height {
                 height: 100vh;
