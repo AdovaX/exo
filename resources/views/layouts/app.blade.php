@@ -70,6 +70,8 @@
                 </div>
             </div>
         </nav>
+         @if (Route::has('login'))
+         @auth
 <div class="container">
     <div class="row mob_margin_bottom">
         <div class="col-md-12">
@@ -85,7 +87,8 @@
     </div>
 
 </div>
-
+ @endauth
+@endif
         @yield('content')
     </div>
 
