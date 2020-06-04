@@ -1,0 +1,27 @@
+1.There should be 3 separate test categories. A)Language B)Technical C) General Tests.
+
+Under language (Japanese) test categorized based on levels. eg: N5, N4, N3,N2,N1. Under these any number of tests should be able to add.
+
+Under technical test based on Language eg PHP, Java, Dot net etc, also various sub tests should also be able to upload.
+
+Under General test, we should be able to upload Aptitude, IQ test , test for interviews etc.
+
+2. Admin could assign tests to various employees depending on the requirement from teacher or other concerned person. 
+
+3.Email address can be used to log-in to the account. Official/ Personal (in case of non employees)
+
+4.Each participant should have a profile, where he/she can view how many tests they took so far, which all categories, their marks etc.  Admin should also be able to identify the same. 
+
+5.Basically there will be only one admin account and many user profile. Once an employee resigns or not needed admin should be able to deactivate. 
+
+6. Users once submit the answers, they should not be able to view the question papers after the exam. But they can see the time , date, Test name, and Score. 
+
+7.Admin at any point of time should be able to delete any test and update or upload new questions in a particular test category. 
+
+8.The answers should be autosaved, means, if power disruption happens, he/she should be able to resume from were they left off.
+
+9. It will be good if the questions appear one by one with a time limit to answer each question. 
+
+10.Test score should also be auto emailed to their respective email addresses.
+
+11.At any point admin should be able to take total test details with marks as report and send to respective person.
