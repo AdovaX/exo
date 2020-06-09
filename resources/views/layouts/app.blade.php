@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top bg_color">
             <div class="container">
                 <div class="navbar-header">
 
@@ -36,11 +36,18 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="#"> Home </a> </li>
+                        <li><a href="#"> Settings </a> </li>
+                        <li><a href="#"> Chat </a> </li>
+                        <li><a href="#"> News </a> </li>
+                        <li><a href="#"> Notification </a> </li>
+                        <li><a href="#"> Reports </a> </li>
+                        <li><a href="#"> Search </a> </li>
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
@@ -70,25 +77,7 @@
                 </div>
             </div>
         </nav>
-         @if (Route::has('login'))
-         @auth
-<div class="container">
-    <div class="row mob_margin_bottom">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-            <div class="panel-heading panel_header">
-            <div class="w3-row">
-            <div class="w3-col l8 s6   w3-left"><p>Dashboard | {{@$title}}</p></div>
-            <div class="w3-col l4 s6  "><p>Online teachers : 3 | Online Students : 5</p></div>
-            </div>
-            </div>
-            </div>
-        </div>
-    </div>
-
-</div>
- @endauth
-@endif
+      
         @yield('content')
     </div>
 

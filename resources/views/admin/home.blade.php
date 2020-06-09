@@ -19,12 +19,12 @@
                         <p class="card-text text-sm">
                           Language test includes different levels of JLPT exams. You can easily create exams in each catagory.
                         </p>
-                          <div class="w3-row  w3-pink no_margin">
+                          <div class="w3-row   no_margin">
                           <div class="w3-col l6 s6 w3-left"><p>Total exams : 5</p></div>
                           <div class="w3-col l6 s6 w3-right "><p>Total catagories : 5</p></div>
                           </div>
                           <br>
-                          <a href="{{route('Language')}}" class=" cust_button btn"> Click to Manage</a>
+                          <a href="{{route('Language')}}" class=" cust_button w3-pink btn"> Click to Manage</a>
                     </div>
                 </div>
             </div>
@@ -37,13 +37,13 @@
                       <p class="card-text text-sm">
                       You can upload Aptitude test, IQ test , test for interviews and other type of questions.
                        </p>
-                        <div class="w3-row  w3-pink no_margin">
+                        <div class="w3-row   no_margin">
                         <div class="w3-col l6 s6 w3-left"><p>Total exams : 5</p></div>
                         <div class="w3-col l6 s6 w3-right "><p>Total catagories : 5</p></div>
                         </div>
                         <br>
                         <form  action="" method="post">
-                        <button type="button" name="button" class=" cust_button btn">
+                        <button type="button" name="button" class=" cust_button w3-pink btn">
                         Click to Manage&nbsp; </button>
                         </form>
                   </div>
@@ -58,13 +58,13 @@
                         <p class="card-text text-sm">
                         It test based on Language eg PHP, Java, Dot net etc, also various sub tests can be able to make.
                          </p>
-                          <div class="w3-row  w3-pink no_margin">
+                          <div class="w3-row   no_margin">
                           <div class="w3-col l6 s6 w3-left"><p>Total exams : 5</p></div>
                           <div class="w3-col l6 s6 w3-right "><p>Total catagories : 5</p></div>
                           </div>
                           <br>
                           <form  action="" method="post">
-                          <button type="button" name="button" class=" cust_button btn">
+                          <button type="button" name="button" class=" cust_button w3-pink btn">
                           Click to Manage&nbsp; </button>
                           </form>
                     </div>
@@ -78,13 +78,13 @@
                           <p class="card-text text-sm">
                           Click the button to see all the teachers' data like exams conducted , students owned etc.
                            </p>
-                            <div class="w3-row  w3-pink no_margin">
+                            <div class="w3-row   no_margin">
                             <div class="w3-col l6 s6 w3-left"><p>Total teachers : 5</p></div>
                             <div class="w3-col l6 s6 w3-right "><p>Live teachers : 5</p></div>
                             </div>
                             <br>
                             <form  action="" method="post">
-                            <button type="button" name="button" class=" cust_button btn">
+                            <button type="button" name="button" class=" cust_button w3-pink btn">
                             Click to Manage&nbsp; </button>
                             </form>
 
@@ -99,13 +99,13 @@
                           <p class="card-text text-sm">
                           Click the button to see the student data like profile and completed exams etc.
                            </p>
-                            <div class="w3-row  w3-pink no_margin">
+                            <div class="w3-row   no_margin">
                             <div class="w3-col l6 s6 w3-left"><p>Total students : 5</p></div>
                             <div class="w3-col l6 s6 w3-right "><p>Live students : 5</p></div>
                             </div>
                             <br>
                             <form  action="" method="post">
-                            <button type="button" name="button" class=" cust_button btn">
+                            <button type="button" name="button" class=" cust_button w3-pink btn">
                             Click to Manage&nbsp; </button>
                             </form>
 
@@ -120,12 +120,12 @@
                         <p class="card-text text-sm">
                         It shows the all exams from all teachers with approvel management and report generations.
                          </p>
-                          <div class="w3-row  w3-pink no_margin">
+                          <div class="w3-row   no_margin">
                           <div class="w3-col l6 s6 w3-left"><p>Total list : 5</p></div>
                           <div class="w3-col l6 s6 w3-right "><p>Total approved : 5</p></div>
                           </div>
                           <br>
-                          <a href="{{route('Language')}}" class=" cust_button btn"> Click to Manage</a>
+                          <a href="{{route('Language')}}" class=" cust_button w3-pink btn"> Click to Manage</a>
                     </div>
                 </div>
             </div>

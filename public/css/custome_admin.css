@@ -132,6 +132,7 @@ margin: 0;
 font-family: "Montserrat",sans-serif;
 font-size: 18px;
 font-weight: 900;
+color: black;
 }
 
 .pt-1, .py-1 {
@@ -140,7 +141,7 @@ padding-top: .25rem !important;
 
 .head-icon{
 margin-top:18px;
-color:#FF4500
+color:#EB536C;
 }
 
 .mob_top_margin{
@@ -230,4 +231,15 @@ background:linear-gradient(135deg, #622774 0%,#c53364 100%);
   background: white;
   border: none;
   font-weight: bold;
+}
+.bg_color{
+  background-color: #000080!important;
+}
+.navbar-default .navbar-brand{
+  color: white!important;
+  font-weight: bold;
+  font-size: x-large;
+}
+.navbar-default .navbar-nav>li>a{
+  color: white!important;
 }
