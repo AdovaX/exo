@@ -40,14 +40,15 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-
-                        <li><a href="#"> Home </a> </li>
+@if (Auth::check())
+                        <li><a href="{{ url('/home') }}"> Home </a> </li>
                         <li><a href="#"> Settings </a> </li>
                         <li><a href="#"> Chat </a> </li>
                         <li><a href="#"> News </a> </li>
                         <li><a href="#"> Notification </a> </li>
                         <li><a href="#"> Reports </a> </li>
                         <li><a href="#"> Search </a> </li>
+                        @endif
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>

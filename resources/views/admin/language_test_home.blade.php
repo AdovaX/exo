@@ -13,7 +13,7 @@
 <input type="text" name="cat_name" class="form-control" placeholder="An unique name is preffered">
 <div class="input-group-btn">
 <button class="btn btn-default" type="submit">
-<i class="fa fa-search"></i>
+<i class="fa fa-plus"></i>
 </button>
 </div>
 </div>
@@ -43,12 +43,16 @@
 <div class="col-sm-3">
 
 <div class="cardz purple">
-  <h1>
-  {{$catagory_name->cat_name}}</h1>
-  <p> to the card. And here is some more text to make it even
-longer than it already was. Here is a paragraph of text than
-is being added to the card. And here </p>
-  <button class="buttonz">Sign Up</button>
+  <h2>
+  {{$catagory_name->cat_name}}</h2>
+  <p> 
+Created by : Admin <br>
+Created time : 22-02-2020 <br>
+Total exams in : 2
+  </p>
+
+
+  <button class="buttonz">Make new</button>
 </div>
 
 

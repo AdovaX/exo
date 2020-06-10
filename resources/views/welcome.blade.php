@@ -8,6 +8,7 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
+    <link href="{{ asset('css/custome_admin.css') }}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
@@ -107,7 +108,7 @@
             <div class="content">
                 <div class="title m-b-md">
                   <img src="{{URL::asset('/images/logo.jpg')}}" alt="" class="logo_home">
-                    Exo | Online examination
+                   <div > Exo | Online examination </div>
                 </div>
 
                 <div class="links">
