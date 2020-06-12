@@ -43,20 +43,19 @@
 <div class="col-sm-3">
 
 <div class="cardz purple">
-  <h2>
-  {{$catagory_name->cat_name}}</h2>
+<button type="button" class="close color_white delete_btn" value="{{$catagory_name->id}}" >&times;</button>
+
+  <h2> {{$catagory_name->cat_name}}  </h2>
   <p> 
-Created by : Admin <br>
-Created time : 22-02-2020 <br>
+Created by : {{$catagory_name->made_by}}  <br>
+Created time : {{ $catagory_name->created_at}} <br>
 Total exams in : 2
   </p>
 
+<a href="{{ route('step1', ['parameter' => $catagory_name->id]) }}" class="buttonz">
+Make new</a>
 
-  <button class="buttonz">Make new</button>
 </div>
-
-
-
 </div>
 
 @endforeach
@@ -66,4 +65,50 @@ Total exams in : 2
 <br />
 </div>
 </div>
+<div id="snackbar">Success ... </div>
+
+<script type="text/javascript">
+
+    $.ajaxSetup({
+
+        headers: {
+
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+        }
+
+    });
+
+    $(".delete_btn").click(function(e){
+
+        e.preventDefault();
+        var id = $(this).val(); 
+
+var flag = confirm("Are you sure to delete the category and it's contents ?");
+
+if (flag){  
+	$.ajax({
+           type:'POST',
+           url:'/ajax_delete_Request',
+           data:{id:id},
+           success:function(data){
+             if (data) {
+             	popup();
+             }
+             setTimeout(function () { document.location.reload(true); }, 2000);
+           }
+        });}
+
+      
+	});
+
+function popup() {
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+</script>
+
+
 @endsection
+

@@ -9,4 +9,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/Language_test', 'Language_test_controller@index')->name('Language')->middleware('auth');
+
 Route::post('/Language_test/store', 'Language_test_controller@store')->middleware('auth');
+
+Route::post('ajax_delete_Request', 'Language_test_controller@ajax_delete_Request');
+
+
+Route::get('/Language_test/step1{id}', 'Language_test_controller@step1')->name('step1')->middleware('auth');
