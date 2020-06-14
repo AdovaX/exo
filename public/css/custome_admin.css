@@ -302,3 +302,11 @@ text-transform: uppercase;
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
+
+
+.lang_model{
+  color: black;
+}
+.color_red{
+  color: red!important;
+}
