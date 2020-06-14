@@ -32,6 +32,8 @@
           <div role="tabpanel" class="tab-pane active" id="make">
 
 <div class="w3-bar">
+<a href="{{route('Language')}}" class="w3-bar-item w3-button w3-black" >Go back 
+<span class="fa fa-backward"> </span> </a>
 <button class="w3-bar-item w3-button w3-black" data-toggle="modal" data-target="#single">Single 
 <span class="fa fa-snowflake-o"> </span> </button>
 <button class="w3-bar-item w3-button w3-black" data-toggle="modal" data-target="#paragraph">Paragraph  
@@ -42,6 +44,8 @@
 <span class="fa fa-image"> </span></button>
 <button class="w3-bar-item w3-button w3-black" data-toggle="modal" data-target="#multi">Multi type 
 <span class="fa fa-braille"> </span></button>
+<button class="w3-bar-item w3-button w3-black" data-toggle="modal" data-target="#pdf">Document
+<span class="fa fa-file"> </span></button>
 </div>
 @if($errors->any())
     <div class="alert  no_margin error_msg">
@@ -56,40 +60,53 @@
 
  
 <div class="show_questions  "> 
-<h3>Over view</h3>
+  
+
+<div class="row">
+
 @foreach ($list_of_single_questions as $value)
-
-<div class="col-sm-8">
-<div class="w3-panel w3-border  w3-padding"> 
-
+<div class="col-lg-6 m-15px-tb">
+<div  class="resume-box">
+<span class="time">{{$value->updated_at}}</span>
+<span class="time_green">{{$value->made_by}}</span> &nbsp;
+<span class=""> <i class="fa fa-snowflake-o"></i> </span>
+<button type="button" class="w3-button w3-right time del_single_btn" value="{{$value->id}}"> Delete 
+	<span class="fa fa-trash "></span> </button>
+<h5>Art Director - Facebook Inc</h5>
+<p>
 {{$value->the_question}} 
-</div>
-</div>
-<div class="col-sm-4"> 
-<div class="w3-panel  "> 
-<button type="button" class="btn w3-white del_single_btn" value="{{$value->id}}"> Delete 
-	<span class="fa fa-trash color_red"></span> </button>
-</div>
-</div>
+</p>
 
+</div>
+</div>
 @endforeach
+</div>
 
-
+<div class="row">
 @foreach ($list_of_para_questions as $value)
 
-<div class="col-sm-8">
-<div class="w3-panel w3-border w3-padding"> 
+<div class="col-lg-6 m-15px-tb">
+<div  class="resume-box">
+<span class="time">{{$value->updated_at}}</span>
+<span class="time_green">{{$value->made_by}}</span> &nbsp;
+<span class=""> <i class="fa fa-paragraph"></i> </span>
+<button type="button" class="w3-button w3-right time del_para_btn" value="{{$value->id}}"> Delete 
+	<span class="fa fa-trash "></span> </button>
+<h5>Art Director - Facebook Inc</h5>
+<p>
+{{$value->the_question}} 
+</p>
 
-{{$value->the_question}}
 </div>
 </div>
-<div class="col-sm-4"> 
-<div class="w3-panel  "> 
-<button type="button" class="btn w3-white del_para_btn"  value="{{$value->id}}"> Delete 
-	<span class="fa fa-trash color_red"></span> </button>
-</div>
-</div>
+
+
+
 @endforeach
+</div> 
+
+
+ 
 
 
 </div>
@@ -103,32 +120,53 @@
 
           </div>
           <div role="tabpanel" class="tab-pane" id="published">
+ 
+<section   >
+<div class=" ">
+
+<div class="row">
+<div class="col-lg-6 m-15px-tb">
 
 
-<div class="table-responsive">          
-  <table class="table">
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>Question</th>
-        <th>Published on</th>
-        <th>Authur</th>
-        <th>Attended</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Anna</td>
-        <td>Pitt</td>
-        <td>35</td>
-        <td>New York</td>
-        <td>USA</td>
-      </tr>
-    </tbody>
-  </table>
-  </div> 
+<div  class="resume-box">
+
+<span class="time">2019 - Present</span>
+<h5>Art Director - Facebook Inc</h5>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+</div>
+<div class="col-lg-6 m-15px-tb">
+<div  class="resume-box">
+
+<span class="time">2011 - Present</span>
+<h5>Art Director - Facebook Inc</h5>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+</div>
+<div class="col-lg-6 m-15px-tb">
+<div  class="resume-box">
+
+<span class="time">2019 - Present</span>
+<h5>Art Director - Facebook Inc</h5>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+
+
+</div>
+<div class="col-lg-6 m-15px-tb">
+<div  class="resume-box">
+
+<span class="time">2019 - Present</span>
+<h5>Art Director - Facebook Inc</h5>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+
+
+</div>
+
+</div>
+</div>
+</section>
 
           </div>
           <div role="tabpanel" class="tab-pane" id="live">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..
@@ -235,6 +273,24 @@
 <div class="modal-body">
 <p>Please enter your question.</p>
 <textarea name="" class="form-control" rows="5"></textarea>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn w3-button" >Proceed  <span class="fa fa-send"></span> </button>
+</div>
+</div>
+</div>
+</div>
+
+<div id="pdf" class="modal fade lang_model" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Upload PDF document.</h4>
+</div>
+<div class="modal-body">
+<p>Choose pdf type file</p>
+ <input type="file" name="" value="" placeholder="" class="form-control">
 </div>
 <div class="modal-footer">
 <button type="button" class="btn w3-button" >Proceed  <span class="fa fa-send"></span> </button>

@@ -42,8 +42,12 @@ echo "1";
 public function step1(Request $request){
 
 $language_category_id      = $request['id'];
-$list_of_para_questions    = DB::table('Lang_para_questions')->get();
-$list_of_single_questions  = DB::table('Lang_questions')->get();
+
+$list_of_para_questions    = DB::table('Lang_para_questions')
+                             ->where('sub_cat_id', '=',$language_category_id)->get();
+
+$list_of_single_questions  = DB::table('Lang_questions')
+                             ->where('sub_cat_id', '=',$language_category_id)->get();
 
 return view('admin.language_test_maker' ,
 	['title' => 'Language test making',
