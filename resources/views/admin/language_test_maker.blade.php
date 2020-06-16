@@ -32,7 +32,7 @@
           <div role="tabpanel" class="tab-pane active" id="make">
 
 <div class="w3-bar">
-<a href="{{route('Language')}}" class="w3-bar-item w3-button w3-black" >Go back 
+<a href="{{route('Language')}}" class="w3-bar-item w3-button" >Go back 
 <span class="fa fa-backward"> </span> </a>
 <button class="w3-bar-item w3-button w3-black" data-toggle="modal" data-target="#single">Single 
 <span class="fa fa-snowflake-o"> </span> </button>
@@ -66,19 +66,20 @@
 
 @foreach ($list_of_single_questions as $value)
 <div class="col-lg-6 m-15px-tb">
-<div  class="resume-box">
+<div  class="resume-box single_boxer">
 <span class="time">{{$value->updated_at}}</span>
 <span class="time_green">{{$value->made_by}}</span> &nbsp;
 <span class=""> <i class="fa fa-snowflake-o"></i> </span>
 <button type="button" class="w3-button w3-right time del_single_btn" value="{{$value->id}}"> Delete 
 	<span class="fa fa-trash "></span> </button>
-<h5>Art Director - Facebook Inc</h5>
+<h5>{{$n++.' ) '.$lang_cat_name->cat_name}}</h5>
 <p>
 {{$value->the_question}} 
 </p>
 
 </div>
 </div>
+ 
 @endforeach
 </div>
 
@@ -86,13 +87,13 @@
 @foreach ($list_of_para_questions as $value)
 
 <div class="col-lg-6 m-15px-tb">
-<div  class="resume-box">
+<div  class="resume-box para_boxer">
 <span class="time">{{$value->updated_at}}</span>
 <span class="time_green">{{$value->made_by}}</span> &nbsp;
 <span class=""> <i class="fa fa-paragraph"></i> </span>
 <button type="button" class="w3-button w3-right time del_para_btn" value="{{$value->id}}"> Delete 
 	<span class="fa fa-trash "></span> </button>
-<h5>Art Director - Facebook Inc</h5>
+<h5>{{$n++.$lang_cat_name->cat_name}}</h5>
 <p>
 {{$value->the_question}} 
 </p>
@@ -100,18 +101,16 @@
 </div>
 </div>
 
-
-
+ 
 @endforeach
 </div> 
 
 
- 
-
 
 </div>
 
-
+<button type="submit" class="btn btn-success w3-right"> 
+	Finished making <span class="fa fa-share"></span> </button>
 
           </div>
           <div role="tabpanel" class="tab-pane" id="inbox">

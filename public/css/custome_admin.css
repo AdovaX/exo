@@ -425,3 +425,15 @@ text-transform: uppercase;
 .show_questions{
   margin-top: 10px;
 }
+.resume-box i{
+  color: black;
+}
+.single_boxer{
+  max-height: 135px;
+    min-height: 135px;
+}
+.para_boxer{
+ max-height: 180px;
+    min-height: 175px;
+  
+}

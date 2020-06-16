@@ -43,6 +43,8 @@ public function step1(Request $request){
 
 $language_category_id      = $request['id'];
 
+$lang_cat_name = DB::table('Lang_test_cat')->where('id', $language_category_id )->first(); 
+
 $list_of_para_questions    = DB::table('Lang_para_questions')
                              ->where('sub_cat_id', '=',$language_category_id)->get();
 
@@ -53,7 +55,9 @@ return view('admin.language_test_maker' ,
 	['title' => 'Language test making',
 	 'lang_cat' => $language_category_id,
 	 'list_of_single_questions' => $list_of_single_questions, 
-	 'list_of_para_questions' => $list_of_para_questions]);
+	 'list_of_para_questions' => $list_of_para_questions,
+	 'lang_cat_name' => $lang_cat_name,
+	 'n'=>1 ]);
 }
 
 public function single_type(Request $request){
