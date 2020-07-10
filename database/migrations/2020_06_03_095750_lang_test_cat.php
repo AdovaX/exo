@@ -17,6 +17,7 @@ class LangTestCat extends Migration
             $table->increments('id');
             $table->string('cat_name', 100)->unique();
             $table->string('made_by',100);
+            $table->integer('main_cat_id');
             $table->timestamps();
         });
     }

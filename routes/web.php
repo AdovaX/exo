@@ -24,3 +24,7 @@ Route::post('/Language_test/para_type', 'Language_test_controller@para_type')->n
 Route::post('/Language_test/del_single', 'Language_test_controller@del_single')->middleware('auth');
 
 Route::post('/Language_test/del_para', 'Language_test_controller@del_para')->middleware('auth');
+
+Route::post('/Language_test/finished', 'Language_test_controller@finished')->middleware('auth');
+
+Route::post('/Language_test/reset', 'Language_test_controller@reset')->middleware('auth');

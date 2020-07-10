@@ -1,35 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
- 
+
 
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-12"> 
-      <!-- Nav tabs -->
-      <div class="card">
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active">
-          	<a href="#make" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-file"></i>  <span>Make</span></a>
-          </li>
-          <li role="presentation">
-          	<a href="#inbox" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-inbox"></i>  <span>Inbox</span></a>
-          </li>
-          <li role="presentation">
-          	<a href="#published" aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-eye"></i> <span>Published</span></a>
-          </li>
-          <li role="presentation">
-          	<a href="#live" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-bullseye"></i>  <span>Live</span></a>
-          </li>
-          <li role="presentation">
-          	<a href="#extra" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-plus-square-o"></i>  <span>extra</span></a>
-          </li>
-        </ul>
-        
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="make">
+<div class="row">
+<div class="col-md-12"> 
+<!-- Nav tabs -->
+<div class="card">
+<ul class="nav nav-tabs" role="tablist">
+<li role="presentation" class="active">
+<a href="#make" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-file"></i>  <span>Make</span></a>
+</li>
+<li role="presentation">
+<a href="#inbox" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-inbox"></i>  <span>Inbox</span></a>
+</li>
+<li role="presentation">
+<a href="#published" aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-eye"></i> <span>Published</span></a>
+</li>
+<li role="presentation">
+<a href="#live" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-bullseye"></i>  <span>Live</span></a>
+</li>
+<li role="presentation">
+<a href="#extra" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-plus-square-o"></i>  <span>extra</span></a>
+</li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="make">
 
 <div class="w3-bar">
 <a href="{{route('Language')}}" class="w3-bar-item w3-button" >Go back 
@@ -46,21 +46,27 @@
 <span class="fa fa-braille"> </span></button>
 <button class="w3-bar-item w3-button w3-black" data-toggle="modal" data-target="#pdf">Document
 <span class="fa fa-file"> </span></button>
+<button class="w3-bar-item w3-button w3-black reset_tb" >Reset
+<span class="fa fa-refresh"> </span></button>
 </div>
 @if($errors->any())
-    <div class="alert  no_margin error_msg">
+<div class="alert  no_margin error_msg">
 <p>{{$errors->first()}}</p>
 </div>
 @endif
 @if (\Session::has('success'))
-    <div class="alert success_msg">
-         {{ \Session::get('success') }}
-    </div>
+<div class="alert success_msg">
+{{ \Session::get('success') }}
+</div>
 @endif
 
- 
+<form action="{{url('/Language_test/finished')}}" method="post">
+  <input name="_token" type="hidden" value="{{ csrf_token() }}">
+<input type="hidden" name="s_bulk" value="{{$list_of_single_questions}}">
+<input type="hidden" name="p_bulk" value="{{$list_of_para_questions}}">
+
 <div class="show_questions  "> 
-  
+
 
 <div class="row">
 
@@ -71,15 +77,15 @@
 <span class="time_green">{{$value->made_by}}</span> &nbsp;
 <span class=""> <i class="fa fa-snowflake-o"></i> </span>
 <button type="button" class="w3-button w3-right time del_single_btn" value="{{$value->id}}"> Delete 
-	<span class="fa fa-trash "></span> </button>
-<h5>{{$n++.' ) '.$lang_cat_name->cat_name}}</h5>
+<span class="fa fa-trash "></span> </button>
+<h5>{{$n++.' ) '.$value->the_question}}</h5>
 <p>
-{{$value->the_question}} 
+{{$lang_cat_name->cat_name}} 
 </p>
 
 </div>
 </div>
- 
+
 @endforeach
 </div>
 
@@ -92,93 +98,100 @@
 <span class="time_green">{{$value->made_by}}</span> &nbsp;
 <span class=""> <i class="fa fa-paragraph"></i> </span>
 <button type="button" class="w3-button w3-right time del_para_btn" value="{{$value->id}}"> Delete 
-	<span class="fa fa-trash "></span> </button>
-<h5>{{$n++.$lang_cat_name->cat_name}}</h5>
+<span class="fa fa-trash "></span> </button>
+<h5>{{$n++.' ) '.$value->the_question}}</h5>
 <p>
-{{$value->the_question}} 
+{{$lang_cat_name->cat_name}} 
 </p>
 
 </div>
 </div>
 
- 
+
 @endforeach
 </div> 
+</div>
+
+<div class="row"> 
+<div class="col-sm-6"> </div> 
+<div class="col-sm-6"> 
+
+<div class="finished_s1  ">
+<input type="text" name="exam_name" class="form-control" placeholder="Question paper name" required>
+<div class="input-group-btn">
+<button class="btn btn-success" type="submit" type="submit">
+Finished making 
+<span class="fa fa-share"></span>
+</button>
+</div>
+</div>
+
+</div>
+ 
+</div>
+
+
+</form>
+
+</div>
+<div role="tabpanel" class="tab-pane" id="inbox">
 
 
 
 </div>
+<div role="tabpanel" class="tab-pane" id="published">
 
-<button type="submit" class="btn btn-success w3-right"> 
-	Finished making <span class="fa fa-share"></span> </button>
-
-          </div>
-          <div role="tabpanel" class="tab-pane" id="inbox">
-
- 
-
-          </div>
-          <div role="tabpanel" class="tab-pane" id="published">
- 
 <section   >
 <div class=" ">
+ 
+<div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Exam name</th>
+        <th>Made by</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
 
-<div class="row">
-<div class="col-lg-6 m-15px-tb">
+@foreach ($list_of_all_exam_names as $value)
 
+ 
+      <tr>
+        <td>1</td>
+        <td>{{$value->exam_name}}</td>
+        <td>{{$value->made_by}}</td>
+        <td>35</td>
+        <td>New York</td>
+        <td>USA</td>
+      </tr>
 
-<div  class="resume-box">
-
-<span class="time">2019 - Present</span>
-<h5>Art Director - Facebook Inc</h5>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-</div>
-</div>
-<div class="col-lg-6 m-15px-tb">
-<div  class="resume-box">
-
-<span class="time">2011 - Present</span>
-<h5>Art Director - Facebook Inc</h5>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-</div>
-</div>
-<div class="col-lg-6 m-15px-tb">
-<div  class="resume-box">
-
-<span class="time">2019 - Present</span>
-<h5>Art Director - Facebook Inc</h5>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-</div>
-
-
-</div>
-<div class="col-lg-6 m-15px-tb">
-<div  class="resume-box">
-
-<span class="time">2019 - Present</span>
-<h5>Art Director - Facebook Inc</h5>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-</div>
+@endforeach
+    </tbody>
+  </table>
+  </div>
 
 
-</div>
 
-</div>
 </div>
 </section>
 
-          </div>
-          <div role="tabpanel" class="tab-pane" id="live">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..
-          </div>
-          <div role="tabpanel" class="tab-pane" id="extra">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..</div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+<div role="tabpanel" class="tab-pane" id="live">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..
+</div>
+<div role="tabpanel" class="tab-pane" id="extra">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 
- 
+
 
 <div id="single" class="modal fade lang_model" role="dialog">
 <div class="modal-dialog">
@@ -205,7 +218,7 @@
 <div id="paragraph" class="modal fade lang_model" role="dialog">
 <div class="modal-dialog">
 <div class="modal-content">
-	<form method="post" action="{{url('/Language_test/para_type')}}">
+<form method="post" action="{{url('/Language_test/para_type')}}">
 <input name="_token" type="hidden" value="{{ csrf_token() }}">
 <input name="sub_cat_id" id="sub_cat_id" type="hidden" value="{{ $lang_cat }}">
 <div class="modal-header">
@@ -289,7 +302,7 @@
 </div>
 <div class="modal-body">
 <p>Choose pdf type file</p>
- <input type="file" name="" value="" placeholder="" class="form-control">
+<input type="file" name="" value="" placeholder="" class="form-control">
 </div>
 <div class="modal-footer">
 <button type="button" class="btn w3-button" >Proceed  <span class="fa fa-send"></span> </button>
@@ -298,7 +311,7 @@
 </div>
 </div>
 
- 
+
 <script>
 $.ajaxSetup({
 headers: {
@@ -311,16 +324,28 @@ $('.del_single_btn').click(function(){
 var id = $(this).val();
 
 $.ajax({
-           type:'POST',
-           url:'/Language_test/del_single',
-           data:{id:id},
-           success:function(data){
-            alert(data);
-            location.reload();
+type:'POST',
+url:'/Language_test/del_single',
+data:{id:id},
+success:function(data){
+alert(data);
+location.reload();
+}
+});
 
-              
-           }
-        });
+});
+
+$('.reset_tb').click(function(){
+
+ 
+$.ajax({
+type:'POST',
+url:'/Language_test/reset',
+success:function(data){
+
+location.reload();
+}
+});
 
 });
 $('.del_para_btn').click(function(){
@@ -328,16 +353,16 @@ $('.del_para_btn').click(function(){
 var id = $(this).val();
 
 $.ajax({
-           type:'POST',
-           url:'/Language_test/del_para',
-           data:{id:id},
-           success:function(data){
-            alert(data);
-            location.reload();
+type:'POST',
+url:'/Language_test/del_para',
+data:{id:id},
+success:function(data){
+alert(data);
+location.reload();
 
-              
-           }
-        });
+
+}
+});
 
 });
 

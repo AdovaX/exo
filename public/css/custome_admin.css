@@ -16,6 +16,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .finished_s1{
+  display: grid!important;
+}
  .heading_head{
    display: block;
    font-size: 14vw!important;
@@ -436,4 +439,8 @@ text-transform: uppercase;
  max-height: 180px;
     min-height: 175px;
   
+}
+
+.finished_s1{
+  display: -webkit-inline-box;
 }
