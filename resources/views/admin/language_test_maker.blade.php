@@ -157,19 +157,30 @@ Finished making
       </tr>
     </thead>
     <tbody>
-
+     <?php $n = 1; ?>
 @foreach ($list_of_all_exam_names as $value)
-
- 
       <tr>
-        <td>1</td>
+        <td>{{$n++}}</td>
         <td>{{$value->exam_name}}</td>
         <td>{{$value->made_by}}</td>
-        <td>35</td>
-        <td>New York</td>
-        <td>USA</td>
-      </tr>
-
+        <td>{{$value->cat_name}}</td>
+        <td>{{$value->created_at}}</td>
+        <td>
+ 
+ 
+<div class="btn-group">
+<button type="button" class="btn btn-primary edit_q" value="{{$value->id}}">Edit 
+<span class="fa fa-edit"></span> </button>
+<button type="button" class="btn btn-primary delete_q"  value="{{$value->id}}">Delete
+<span class="fa fa-trash"></span> 
+</button>
+<a  class="btn btn-primary view_q"
+ href="{{ url('Language_test/examination')."/".$value->exam_name}}" target="_blank">View
+<span class="fa fa-eye"></span> 
+</a>
+</div>
+</td>
+</tr>
 @endforeach
     </tbody>
   </table>
@@ -319,10 +330,23 @@ headers: {
 }
 });
 
-$('.del_single_btn').click(function(){
 
+$('.delete_q').click(function(){
 var id = $(this).val();
+$.ajax({
+type:'POST',
+url:'/Language_test/del_question',
+data:{id:id},
+success:function(data){
+alert(data);
+location.reload();
+}
+});
+});
 
+
+$('.del_single_btn').click(function(){
+var id = $(this).val();
 $.ajax({
 type:'POST',
 url:'/Language_test/del_single',
@@ -332,21 +356,19 @@ alert(data);
 location.reload();
 }
 });
-
 });
 
-$('.reset_tb').click(function(){
 
- 
+
+
+$('.reset_tb').click(function(){
 $.ajax({
 type:'POST',
 url:'/Language_test/reset',
 success:function(data){
-
 location.reload();
 }
 });
-
 });
 $('.del_para_btn').click(function(){
 

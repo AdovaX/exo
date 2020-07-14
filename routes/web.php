@@ -28,3 +28,8 @@ Route::post('/Language_test/del_para', 'Language_test_controller@del_para')->mid
 Route::post('/Language_test/finished', 'Language_test_controller@finished')->middleware('auth');
 
 Route::post('/Language_test/reset', 'Language_test_controller@reset')->middleware('auth');
+
+Route::post('/Language_test/del_question','Language_test_controller@del_question')->middleware('auth');
+
+Route::get('/Language_test/examination/{name}','Language_test_controller@examination')->name('examination')->middleware('auth');
+ 

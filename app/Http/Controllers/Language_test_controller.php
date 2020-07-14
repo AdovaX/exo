@@ -9,6 +9,7 @@ use App\Model_single_questions;
 use App\Model_para_questions;
 use App\Model_all_exam_names;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Crypt;
 
 class Language_test_controller extends Controller
 {
@@ -60,8 +61,8 @@ $list_of_single_questions  = DB::table('Lang_questions')
                              ->where('made_by', '=','Admin')->get();
 
 $list_of_all_exam_names = DB::table('all_exam_names')
-                             ->where('sub_cat_id', '=',$language_category_id)
-                             ->where('made_by', '=','Admin')->get();
+   ->join('Sub_categories', 'all_exam_names.sub_cat_id', '=', 'Sub_categories.id') 
+   ->where('all_exam_names.made_by', '=','Admin')->get();
 
 return view('admin.language_test_maker' ,
 	['title' => 'Language test making',
@@ -92,6 +93,12 @@ DB::table('Lang_questions')->where('id', '=', $request['id'])->delete();
  
 echo "Deleted the record.";
 }
+public function del_question(Request $request){
+
+DB::table('all_exam_names')->where('id', '=', $request['id'])->delete();
+ 
+echo "Deleted the record.";
+}
 public function del_para(Request $request){
 
 DB::table('Lang_para_questions')->where('id', '=', $request['id'])->delete();
@@ -102,8 +109,34 @@ echo "Deleted the record.";
 public function reset(Request $request){
 
 DB::table('Lang_questions')->where('made_by', '=', "admin")->delete();
+DB::table('Lang_para_questions')->where('made_by', '=', "admin")->delete();
  
 
+}
+
+public function examination(Request $request){
+
+$question_name = $request['name'];
+
+$questions =  DB::table('all_exam_names')
+->join('SingleQuestions','all_exam_names.exam_name','=','SingleQuestions.question_name')
+->join('ParaQuestions','all_exam_names.exam_name','=','ParaQuestions.question_name')
+->where('all_exam_names.exam_name',$question_name)
+->select('*')
+->get();
+$all_single_Q = json_decode($questions[0]->single_question);
+$all_para_Q = json_decode($questions[0]->para_question);
+$created_by =$questions[0]->made_by;
+ 
+ 
+ 
+return view('admin.question_paper' ,
+	['title' => 'Language test making',
+	'created_by' =>$created_by,
+	'question_name'=>$question_name,
+	'all_single_Q' => $all_single_Q,
+	'all_para_Q'=> $all_para_Q] );
+ 
 }
 
 public function finished(Request $request){
@@ -119,7 +152,8 @@ $sub_cat_id     = $request->session()->get('session_sub_cat');
  	
 DB::table('all_exam_names')->insert(
     ['exam_name' => $request['exam_name'], 'made_by' => "Admin", 
-    'sub_cat_id' => $sub_cat_id ,'main_cat_id' => 1 ]
+    'sub_cat_id' => $sub_cat_id ,'main_cat_id' => 1,
+    'created_at' =>date("Y-m-d H:i:s", time()) ]
 );
 
 if (!is_null($total_single_Q)) {

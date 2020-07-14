@@ -436,11 +436,15 @@ text-transform: uppercase;
     min-height: 135px;
 }
 .para_boxer{
- max-height: 180px;
+max-height: 210px;
     min-height: 175px;
+    overflow-y: hidden;
   
 }
 
 .finished_s1{
   display: -webkit-inline-box;
+}
+.txt_justify{
+  text-align: justify;
 }
