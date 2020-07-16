@@ -32,4 +32,9 @@ Route::post('/Language_test/reset', 'Language_test_controller@reset')->middlewar
 Route::post('/Language_test/del_question','Language_test_controller@del_question')->middleware('auth');
 
 Route::get('/Language_test/examination/{name}','Language_test_controller@examination')->name('examination')->middleware('auth');
+
+Route::get('/Language_test/edit_question/{exam_name}','Language_test_controller@edit_question')->name('edit_question')->middleware('auth');
+
+Route::post('/Language_test/edit_single_q/','Language_test_controller@edit_single_q')->name('edit_single_q')->middleware('auth');
+ 
  

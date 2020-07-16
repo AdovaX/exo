@@ -169,11 +169,14 @@ Finished making
  
  
 <div class="btn-group">
-<button type="button" class="btn btn-primary edit_q" value="{{$value->id}}">Edit 
-<span class="fa fa-edit"></span> </button>
+<a  class="btn btn-primary edit_q" 
+href="{{url('Language_test/edit_question')."/".$value->exam_name}}" target="_blank">Edit 
+<span class="fa fa-edit"></span> </a>
+
 <button type="button" class="btn btn-primary delete_q"  value="{{$value->id}}">Delete
 <span class="fa fa-trash"></span> 
 </button>
+
 <a  class="btn btn-primary view_q"
  href="{{ url('Language_test/examination')."/".$value->exam_name}}" target="_blank">View
 <span class="fa fa-eye"></span> 
@@ -338,7 +341,7 @@ type:'POST',
 url:'/Language_test/del_question',
 data:{id:id},
 success:function(data){
-alert(data);
+alert(id);
 location.reload();
 }
 });

@@ -35,8 +35,7 @@ id made_by  the_question
 
 </div>
  
-</div>
-</div>
+</div> 
 </div>
 <div class="col-sm-2"> </div>
 </div> 
