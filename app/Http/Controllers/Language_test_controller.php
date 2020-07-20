@@ -183,7 +183,8 @@ foreach ($all_single_Q as   $value) {
 	 $new .= json_encode($new_questions).",";
 
 }
-$new = "[" .$new."]";
+$new = substr($new, 0, -1);
+$new = "[".$new."]";
 
 
 DB::update('update SingleQuestions set single_question = ? where question_name = ?',[$new,$question_name]);
